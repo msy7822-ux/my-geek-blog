@@ -13,3 +13,20 @@
 # ブランチ運用
 基本的には`develop`ブランチが作業ブランチになります。
 そして、`main`ブランチでリリース作業などを行なっていきます。
+
+# コマンド
+基本的に本プロジェクトはフロントエンドがメインで、且つフロントエンドは 開発環境ではdockerの上に乗せています。
+### dockerイメージのビルド
+```bash: bash
+dopcker-compose build
+```
+
+### イメージをもとにコンテナを起動する
+```bash: bash
+docker-compose up -d
+```
+
+### dockerのコンテナに入る
+```bash: bash
+dockert-compose run --rm app sh
+```
