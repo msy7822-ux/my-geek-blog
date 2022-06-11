@@ -8,7 +8,6 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "standard",
     "prettier" // eslintとprettierの衝突回避
   ],
   "parser": "@typescript-eslint/parser",
@@ -21,15 +20,6 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "react/react-in-jsx-scope": "off", // v17からReactをimport不要になった
-    // importをアルファベット順にする
-    "import/order": [
-      "error",
-      {
-        "alphabetize": {
-          "order": "asc"
-        }
-      }
-    ]
+    "react/react-in-jsx-scope": "off" // v17からReactをimport不要になった
   }
 }
