@@ -30,3 +30,8 @@ docker-compose up -d
 ```bash: bash
 dockert-compose run --rm app sh
 ```
+
+### dockerコンテナの停止
+```bash: bash 
+docker-compose stop
+```
