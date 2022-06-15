@@ -16,9 +16,6 @@ const Home: NextPage = () => {
       });
   });
 
-  console.log();
-  const a = 1;
-
   return (
     <div className={styles.container}>
       <Head>
