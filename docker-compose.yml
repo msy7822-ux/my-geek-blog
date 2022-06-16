@@ -9,6 +9,7 @@ services:
       - ./src:/opt/app
     environment:
       - NODE_ENV=development
+      - ./src/node_modules:/opt/app/node_modules
     ports:
       - "3000:3000"
     command: sh -c "yarn dev"
