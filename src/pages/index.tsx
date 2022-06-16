@@ -45,13 +45,20 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
         const thumbnail = article.thumbnail ? article.thumbnail.url : undefined;
 
         return (
-          <div key={key}>
-            <div>
-              <img alt="test image" src={thumbnail || '/images/prog_img.jpg'} />
-            </div>
+          <li key={key}>
+            <a href={`/blogs/${article.id}`}>
+              <div className={styles.imageContainer}>
+                <img
+                  alt="test image"
+                  src={thumbnail || '/images/prog_img.jpg'}
+                  width="200px"
+                  height="100px"
+                />
+              </div>
 
-            <div>title: {article.title}</div>
-          </div>
+              <div>title: {article.title}</div>
+            </a>
+          </li>
         );
       })}
     </div>
