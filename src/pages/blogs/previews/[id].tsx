@@ -1,69 +1,61 @@
-import { useLayoutEffect, useState, useMemo } from 'react';
 import { microcmsClient } from '../../../libs/microCMS';
 import type { ArticleType } from '../../../types/TopPageTypes';
-import type { GetStaticProps, GetServerSideProps } from 'next';
-// import { getStaticProps } from '../../index';
+import Container from '../../../components/Container';
+import BlogPreview from '../../../components/BlogPreview';
+import type { NextPage, GetServerSideProps } from 'next';
+import cheerio from 'cheerio';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/night-owl.css';
 
-// https://maku.blog/p/rdq3ep2/
-// この記事を見て修正するんじゃ
-// export const getServersideProps: GetServerSideProps = async (context) => {
-//   console.log(context);
-//   return {
-//     props: {
-//       names: { id: 1 },
-//     },
-//   };
-// };
+// NOTE: webpackとかmiddlewareとかのTypeError default is not function とかはcacheディレクトリ消すといいかも
 
-const BlogPreview = () => {
-  const [article, setArticle] = useState<ArticleType>({} as ArticleType);
-  const [isFetching, setIsFetching] = useState<boolean>(false);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { req } = context;
+  const urlString = new URL(
+    `http://localhost:3000${req?.url}` ?? 'http://localhost:3000',
+  );
+  const contentId = urlString?.pathname?.split('/')?.slice(-1)[0];
+  const draftKey = urlString?.searchParams?.get('draftKey');
 
-  // URLから取得できるcontentIDとdraftKeyをメモ化することで、基本的にはURLが変わらない限りfetchが走らないようにする。
-  const contentId = useMemo(() => {
-    return typeof window !== 'undefined'
-      ? // TODO: ライブラリでシンプルに書き直したい
-        location.pathname.split('/').slice(-1)[0]
-      : '';
-  }, []);
+  const result = await microcmsClient
+    .get({ endpoint: `blog/${contentId}?draftKey=${draftKey}` })
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
-  const draftKey = useMemo(() => {
-    return typeof window !== 'undefined'
-      ? // TODO: ライブラリでシンプルに書き直したい
-        location.search.slice(1).split('=')[1]
-      : '';
-  }, []);
+  const $ = cheerio.load(result?.body ?? '<div></div>');
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
 
-  console.log(contentId);
-  console.log(draftKey);
+  return {
+    props: {
+      article: result ?? {},
+      highLightHtml: $.html(),
+    },
+  };
+};
 
-  useLayoutEffect(() => {
-    setIsFetching(true);
-    microcmsClient
-      .get({ endpoint: `blog/${contentId}?draftKey=${draftKey}` })
-      .then((res) => {
-        setIsFetching(false);
-        setArticle(res);
-        console.log(res);
-        return res;
-      })
-      .catch((err) => {
-        setIsFetching(false);
-        console.log(err);
-      });
-  }, [contentId, draftKey]);
-
-  if (isFetching) return <>fetching....</>;
-
+const PreviewPage: NextPage<{
+  article: ArticleType;
+  highLightHtml: string;
+}> = ({
+  article,
+  highLightHtml,
+}: {
+  article: ArticleType;
+  highLightHtml: string;
+}) => {
   return (
-    <>
-      {/* htmlパースしたい */}
-      <div className="title">{article?.title}</div>
-      {/* <div className="body">{article?.body}</div> */}
-      <div dangerouslySetInnerHTML={{ __html: article?.body }} />
-      <div className="created_at">{article?.createdAt}</div>
-    </>
+    <Container>
+      <BlogPreview article={article} highlightHtml={highLightHtml} />
+    </Container>
   );
 };
 
-export default BlogPreview;
+export default PreviewPage;

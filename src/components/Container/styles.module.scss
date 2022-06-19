@@ -1,0 +1,13 @@
+.container {
+  width: 60%;
+  margin: 150px auto 0;
+  // TODO: 下記のBGCはレイアウト調整用なので、後で消す。
+  // background: #ffff00;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}

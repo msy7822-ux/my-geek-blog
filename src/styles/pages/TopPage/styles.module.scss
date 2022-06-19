@@ -1,0 +1,42 @@
+// ページトップ
+.pageTop {
+  width: 100%;
+  // headerとの被りの解消 + 余白
+  margin: 0 auto;
+}
+
+.topThumbnail {
+  width: 70%;
+}
+
+.top {
+  display: flex;
+}
+
+// 記事一覧とサイドバー
+.contents {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  .blogListSection {
+    width: 50%;
+  }
+
+  .sidebar {
+    max-width: 30%;
+
+    nav > .sidebarList {
+      list-style: none;
+    }
+  }
+}
+
+// @media (max-width: 600px) {
+//   .grid {
+//     width: 100%;
+//     flex-direction: column;
+//   }
+// }

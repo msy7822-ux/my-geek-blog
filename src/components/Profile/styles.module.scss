@@ -1,0 +1,66 @@
+@import '../../styles/common.scss';
+
+.profileContainer {
+  flex-grow: 1;
+  border: 1px solid #ececec;
+  border-top: 3px solid purple;
+  margin-left: 30px;
+  max-width: 420px;
+
+  .title {
+    font-weight: bold;
+    margin: 10px 10px 20px;
+    border-bottom: 2px solid $gray;
+    background: $weak_purple;
+    color: $white;
+    padding: 2px 3px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .profileNav {
+    width: 100%;
+    text-align: center;
+    min-height: 400px;
+
+    .profileImage {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .underLine {
+      width: 70%;
+      margin: 20px auto;
+    }
+
+    .names {
+      margin-bottom: 20px;
+      p {
+        font-size: 14px;
+      }
+
+      p.nameKatakana {
+        font-size: 12px;
+      }
+    }
+
+    .icons {
+      .icon {
+        margin-right: 15px;
+        font-size: 20px;
+      }
+    }
+
+    .introductionContainer {
+      margin-top: 20px;
+
+      .introduction {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+        font-size: 14px;
+      }
+    }
+  }
+}

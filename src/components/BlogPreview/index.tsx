@@ -1,61 +1,55 @@
-import type { NextPage, GetStaticProps } from 'next';
-import type { PropsType } from '../types/TopPageTypes';
+import type { ArticleType } from '../../types/TopPageTypes';
+import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
+import { giveAttributeToBody } from '../../utils/giveAttributeToBody';
 
-import React from 'react';
-import { microcmsClient } from '../libs/microCMS';
-import styles from '../styles/pages/TopPage/styles.module.scss';
+import Profile from '../Profile';
+import Categories from '../Categories';
 
-import Container from '../components/Container';
-import BlogsList from '../components/BlogsList';
-import Profile from '../components/Profile';
+import styles from './styles.module.scss';
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const articles = await microcmsClient
-    .get({ endpoint: 'blog' })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  return {
-    props: {
-      articles: articles,
-    },
-  };
-};
-
-const TopPage: NextPage<PropsType> = (props: PropsType) => {
-  const { articles } = props;
-  console.log(articles);
-
+const BlogPreview = ({
+  article,
+  highlightHtml,
+}: {
+  article: ArticleType;
+  highlightHtml: string;
+}) => {
   return (
-    <Container>
-      {/* トップページのページトップコンテンツ */}
-      <div className={styles.pageTop}>
-        {/* トップページのサムネを配置する */}
-        <div className={styles.top}>
+    <div className={styles.container}>
+      <div className={styles.contentBody}>
+        <div>
           <img
-            src="/images/prog_langs.png"
+            className={styles.thumbnail}
+            src={article?.thumbnail?.url}
             alt=""
-            className={styles.topThumbnail}
           />
-          <Profile />
         </div>
+        <h1 className="title">{article?.title}</h1>
+        <div className={styles.tags}>
+          <p className={styles.createdDate}>
+            {getCreatesAtDate(article?.createdAt)}
+          </p>
+          {article?.tags?.map((tag, i) => {
+            return (
+              <div key={i}>
+                <p className={styles.tag}>{tag}</p>
+              </div>
+            );
+          })}
+        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: giveAttributeToBody(highlightHtml),
+          }}
+          className={styles.body}
+        />
       </div>
-
-      {/* トップページのコンテンツ */}
-      <div className={styles.contents}>
-        {/* TODO: レイアウト修正する */}
-        {/* 記事一覧を配置する */}
-        <div className={styles.blogListSection}>
-          <BlogsList articles={articles?.contents} />
-        </div>
-        {/* サイドバー */}
-        <aside className={styles.sidebar}>
+      <div className={styles.sidebar}>
+        <Profile />
+        <aside>
           <nav>
             <ul className={styles.sidebarList}>
+              <Categories />
               <p>最近の記事</p>
               <li>
                 <p>title1</p>
@@ -64,15 +58,6 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
                   サンプルテキスト サンプルテキスト サンプルテキスト
                   サンプルテキスト サンプルテキスト サンプルテキスト
                   サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
                   サンプルテキスト サンプルテキスト サンプルテキスト
                 </p>
               </li>
@@ -84,15 +69,23 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
                   サンプルテキスト サンプルテキスト サンプルテキスト
                   サンプルテキスト サンプルテキスト サンプルテキスト
                   サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト{' '}
+                </p>
+              </li>
+              <li>
+                <p>title1</p>
+                <p>
+                  サンプルテキスト サンプルテキスト サンプルテキスト
+                  サンプルテキスト サンプルテキスト サンプルテキスト
+                  サンプルテキスト サンプルテキスト サンプルテキスト
+                  サンプルテキスト サンプルテキスト サンプルテキスト
                 </p>
               </li>
             </ul>
           </nav>
         </aside>
       </div>
-    </Container>
+    </div>
   );
 };
 
-export default TopPage;
+export default BlogPreview;
