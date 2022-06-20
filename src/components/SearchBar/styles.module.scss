@@ -1,0 +1,33 @@
+@import '../../styles/common.scss';
+
+.searchBarContainer {
+  margin-top: 50px;
+
+  .title {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: $weak_purple;
+    font-weight: bold;
+    border-bottom: 1px solid $main_purple;
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  .searchBar {
+    display: inline-flex;
+    align-items: center;
+
+    .icon {
+      margin-top: 5px;
+      margin-right: 5px;
+      font-size: 25px;
+    }
+
+    .searchBarInput {
+      padding: 8px 16px;
+    }
+  }
+}

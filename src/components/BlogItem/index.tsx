@@ -1,4 +1,4 @@
-import { ArticleType } from '../../types/TopPageTypes';
+import { ArticleType } from '../../types/types';
 import styles from './styles.module.scss';
 import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
 

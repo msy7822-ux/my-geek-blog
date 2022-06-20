@@ -10,4 +10,5 @@ export const categories = [
   'Ruby',
   'Webpack',
   'Firebase',
+  'docker',
 ];

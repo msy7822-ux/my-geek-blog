@@ -15,13 +15,15 @@ type ArticleType = {
   revisedAt?: string;
 };
 
-type PropsType = {
-  articles: {
-    contents: ArticleType[];
-    totalCount: number;
-    offset: number;
-    limit: number;
-  };
+type ArticlesType = {
+  contents: ArticleType[];
+  totalCount: number;
+  offset: number;
+  limit: number;
 };
 
-export type { ArticleType, PropsType };
+type PropsType = {
+  articles: ArticlesType;
+};
+
+export type { ArticleType, ArticlesType, PropsType };

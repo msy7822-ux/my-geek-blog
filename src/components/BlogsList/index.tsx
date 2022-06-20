@@ -1,4 +1,4 @@
-import type { ArticleType } from '../../types/TopPageTypes';
+import type { ArticleType } from '../../types/types';
 import styles from './styles.module.scss';
 import BlogItem from '../BlogItem/index';
 

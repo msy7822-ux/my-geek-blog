@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next';
-import type { PropsType } from '../types/TopPageTypes';
+import type { PropsType } from '../types/types';
 
 import React from 'react';
 import { microcmsClient } from '../libs/microCMS';

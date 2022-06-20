@@ -2,13 +2,16 @@
 
 .categories {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
 
   .title {
     display: inline-flex;
     align-items: center;
     margin-bottom: 20px;
+    color: $weak_purple;
+    font-weight: bold;
+    border-bottom: 1px solid $main_purple;
 
     .icon {
       margin-right: 5px;

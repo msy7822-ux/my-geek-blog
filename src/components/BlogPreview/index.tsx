@@ -1,9 +1,13 @@
-import type { ArticleType } from '../../types/TopPageTypes';
+import type { ArticleType } from '../../types/types';
 import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
 import { giveAttributeToBody } from '../../utils/giveAttributeToBody';
+import { useContext } from 'react';
+import { articlesContext } from '../../pages/_app';
 
 import Profile from '../Profile';
 import Categories from '../Categories';
+import RecentBlogs from '../RecentBlogs';
+import SearchBar from '../SearchBar';
 
 import styles from './styles.module.scss';
 
@@ -14,13 +18,15 @@ const BlogPreview = ({
   article: ArticleType;
   highlightHtml: string;
 }) => {
+  const { articles } = useContext(articlesContext);
+
   return (
     <div className={styles.container}>
       <div className={styles.contentBody}>
         <div>
           <img
             className={styles.thumbnail}
-            src={article?.thumbnail?.url}
+            src={article?.thumbnail?.url || '/images/prog_img.jpg'}
             alt=""
           />
         </div>
@@ -49,37 +55,9 @@ const BlogPreview = ({
         <aside>
           <nav>
             <ul className={styles.sidebarList}>
+              <SearchBar />
               <Categories />
-              <p>最近の記事</p>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
+              <RecentBlogs articles={articles} />
             </ul>
           </nav>
         </aside>

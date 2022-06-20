@@ -5,12 +5,12 @@ const Header = () => {
     <div className={styles.headerContainer}>
       <div className={styles.headerLeft}>
         <p className={styles.headerItem}>MSY TECH</p>
+        <p>ITエンジニアの技術ブログ</p>
       </div>
       <div className={styles.headerRight}>
-        <p className={styles.headerItem}>ITエンジニアの技術ブログ</p>
-        <div>
-          <input type="text" name="" id="" placeholder="検索してください" />
-        </div>
+        <p className={styles.headerItem}>ホーム</p>
+        <p className={styles.headerItem}>このブログについて</p>
+        <p className={styles.headerItem}>プロフィール</p>
       </div>
     </div>
   );

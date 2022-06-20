@@ -1,5 +1,5 @@
 import { microcmsClient } from '../../../libs/microCMS';
-import type { ArticleType } from '../../../types/TopPageTypes';
+import type { ArticleType } from '../../../types/types';
 import Container from '../../../components/Container';
 import BlogPreview from '../../../components/BlogPreview';
 import type { NextPage, GetServerSideProps } from 'next';
@@ -23,9 +23,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       return res;
     })
     .catch((err) => {
-      console.log(err);
+      console.log('contentId -> ', contentId);
+      console.log('draftKey -> ', draftKey);
+      console.log('errorの内容 -> ', err);
+      return false;
     });
 
+  // codeブロックのハイライト化
   const $ = cheerio.load(result?.body ?? '<div></div>');
   $('pre code').each((_, elm) => {
     const result = hljs.highlightAuto($(elm).text());
@@ -37,6 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       article: result ?? {},
       highLightHtml: $.html(),
+      isError: !result,
     },
   };
 };
@@ -44,16 +49,27 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const PreviewPage: NextPage<{
   article: ArticleType;
   highLightHtml: string;
+  isError: boolean;
 }> = ({
   article,
   highLightHtml,
+  isError,
 }: {
   article: ArticleType;
   highLightHtml: string;
+  isError: boolean;
 }) => {
   return (
     <Container>
-      <BlogPreview article={article} highlightHtml={highLightHtml} />
+      {isError ? (
+        <div style={{ height: '75vh' }}>
+          記事の取得に際して、問題が発生しました🙇‍♂️
+          <br />
+          リロードしてください🙏
+        </div>
+      ) : (
+        <BlogPreview article={article} highlightHtml={highLightHtml} />
+      )}
     </Container>
   );
 };

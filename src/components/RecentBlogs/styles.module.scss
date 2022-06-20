@@ -1,0 +1,53 @@
+@import '../../styles/common.scss';
+
+.titleText {
+  font-weight: bold;
+  color: $weak_purple;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid $main_purple;
+
+  .icon {
+    margin-right: 5px;
+    color: $weak_purple;
+  }
+}
+
+.recentArticle {
+  display: flex;
+  margin-bottom: 5px;
+
+  .thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 3px;
+  }
+
+  .articleTitle {
+    margin-left: 10px;
+    font-size: 14px;
+    color: $main_purple;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+
+  .tag {
+    font-size: 12px;
+    white-space: nowrap;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background: #ececec;
+    color: $main_purple;
+    padding: 4px 6px;
+    border-radius: 10px;
+  }
+}

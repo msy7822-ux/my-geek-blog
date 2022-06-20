@@ -1,5 +1,7 @@
+@import '../../styles/common.scss';
+
 .footerContainer {
-  background-color: #d4d4d4;
+  background-color: $weak_gray;
   height: 100px;
   box-shadow: 3px 0px 0px 0px rgba(0, 0, 0, 0.3);
 
