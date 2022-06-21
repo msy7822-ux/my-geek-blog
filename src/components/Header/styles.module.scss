@@ -10,7 +10,7 @@
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
   background-color: $main_purple;
   color: $white;
-  z-index: -10000;
+  z-index: 20000;
 
   .headerLeft {
     // NOTE: ページのコンテナは、width: 80%で中央寄せにしている -> 両サイドに10%ずつの余白があるので10%を指定

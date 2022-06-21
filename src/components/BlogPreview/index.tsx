@@ -4,9 +4,9 @@ import { giveAttributeToBody } from '../../utils/giveAttributeToBody';
 import { useContext } from 'react';
 import { articlesContext } from '../../pages/_app';
 
+import RecentBlogs from '../RecentBlogs';
 import Profile from '../Profile';
 import Categories from '../Categories';
-import RecentBlogs from '../RecentBlogs';
 import SearchBar from '../SearchBar';
 
 import styles from './styles.module.scss';

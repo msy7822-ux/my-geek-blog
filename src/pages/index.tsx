@@ -8,6 +8,9 @@ import styles from '../styles/pages/TopPage/styles.module.scss';
 import Container from '../components/Container';
 import BlogsList from '../components/BlogsList';
 import Profile from '../components/Profile';
+import SearchBar from '../components/SearchBar';
+import Categories from '../components/Categories';
+import RecentBlogs from '../components/RecentBlogs';
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const articles = await microcmsClient
@@ -34,7 +37,6 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
     <Container>
       {/* トップページのページトップコンテンツ */}
       <div className={styles.pageTop}>
-        {/* トップページのサムネを配置する */}
         <div className={styles.top}>
           <img
             src="/images/prog_langs.png"
@@ -47,8 +49,6 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
 
       {/* トップページのコンテンツ */}
       <div className={styles.contents}>
-        {/* TODO: レイアウト修正する */}
-        {/* 記事一覧を配置する */}
         <div className={styles.blogListSection}>
           <BlogsList articles={articles?.contents} />
         </div>
@@ -56,37 +56,9 @@ const TopPage: NextPage<PropsType> = (props: PropsType) => {
         <aside className={styles.sidebar}>
           <nav>
             <ul className={styles.sidebarList}>
-              <p>最近の記事</p>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                </p>
-              </li>
-              <li>
-                <p>title1</p>
-                <p>
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト サンプルテキスト
-                  サンプルテキスト サンプルテキスト{' '}
-                </p>
-              </li>
+              <SearchBar />
+              <Categories />
+              <RecentBlogs articles={articles} />
             </ul>
           </nav>
         </aside>

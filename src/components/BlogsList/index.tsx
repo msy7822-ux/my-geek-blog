@@ -4,7 +4,7 @@ import BlogItem from '../BlogItem/index';
 
 const BlogsList = ({ articles }: { articles: ArticleType[] }) => {
   return (
-    <>
+    <div className={styles.articlesListContainer}>
       {articles?.map((article, key) => {
         return (
           <li className={styles.blogsList} key={key}>
@@ -12,7 +12,7 @@ const BlogsList = ({ articles }: { articles: ArticleType[] }) => {
           </li>
         );
       })}
-    </>
+    </div>
   );
 };
 

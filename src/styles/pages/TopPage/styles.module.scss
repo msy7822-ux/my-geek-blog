@@ -7,6 +7,7 @@
 
 .topThumbnail {
   width: 70%;
+  border-radius: 3px;
 }
 
 .top {
@@ -18,11 +19,10 @@
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   margin-top: 50px;
 
   .blogListSection {
-    width: 50%;
+    width: 70%;
   }
 
   .sidebar {

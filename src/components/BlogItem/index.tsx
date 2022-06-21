@@ -1,27 +1,16 @@
 import { ArticleType } from '../../types/types';
 import styles from './styles.module.scss';
-import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
+
+import ArticleInfo from '../ArticleInfo';
+import BlogThumbnail from '../BlogThumbnail';
 
 const BlogItem = ({ article }: { article: ArticleType }) => {
   const thumbnail = article.thumbnail ? article.thumbnail.url : undefined;
   return (
-    <div>
-      <a href={`/blogs/${article.id}`} className={styles.blogItemContainer}>
-        <div>
-          <img
-            alt="test image"
-            src={thumbnail || '/images/prog_img.jpg'}
-            width="200px"
-            height="100px"
-          />
-        </div>
-
-        <div>
-          <p>{article.title}</p>
-          <span>{getCreatesAtDate(article.createdAt)}</span>
-        </div>
-      </a>
-    </div>
+    <a href={`/blogs/${article.id}`} className={styles.blogItemContainer}>
+      <BlogThumbnail thumbnail={thumbnail} />
+      <ArticleInfo article={article} />
+    </a>
   );
 };
 

@@ -1,4 +1,5 @@
 import { categories } from '../../constants/categories';
+import Category from '../Category';
 import styles from './styles.module.scss';
 
 import { BiCategory } from 'react-icons/bi';
@@ -15,9 +16,9 @@ const Categories = () => {
       <br />
       {categories.map((category, i) => {
         return (
-          <div className={styles.category} key={i}>
-            {category}
-          </div>
+          <span key={i}>
+            <Category category={category} />
+          </span>
         );
       })}
     </div>
