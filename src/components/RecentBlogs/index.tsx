@@ -1,6 +1,9 @@
 import { ArticlesType } from '../../types/types';
-import styles from './styles.module.scss';
 import { RiArticleFill } from 'react-icons/ri';
+
+import Category from '../Category';
+
+import styles from './styles.module.scss';
 
 const RecentBlogs = ({ articles }: { articles: ArticlesType }) => {
   return (
@@ -32,8 +35,8 @@ const RecentBlogs = ({ articles }: { articles: ArticlesType }) => {
             <div className={styles.tags}>
               {article?.tags?.map((tag, i) => {
                 return (
-                  <p key={i} className={styles.tag}>
-                    {tag}
+                  <p key={i}>
+                    <Category category={tag} />
                   </p>
                 );
               })}

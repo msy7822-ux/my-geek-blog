@@ -8,7 +8,9 @@ const Header = () => {
         <p>ITエンジニアの技術ブログ</p>
       </a>
       <div className={styles.headerRight}>
-        <p className={styles.headerItem}>ホーム</p>
+        <a href="/">
+          <p className={styles.headerItem}>ホーム</p>
+        </a>
         <p className={styles.headerItem}>このブログについて</p>
         <p className={styles.headerItem}>プロフィール</p>
       </div>
