@@ -1,6 +1,7 @@
-import styles from './styles.module.scss';
 import { GrSearch } from 'react-icons/gr';
 import { AiOutlineFileSearch } from 'react-icons/ai';
+
+import styles from './styles.module.scss';
 
 const SearchBar = () => {
   return (

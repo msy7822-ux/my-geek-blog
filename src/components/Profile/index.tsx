@@ -1,5 +1,6 @@
-import styles from './styles.module.scss';
 import { SiGithub, SiZenn, SiQiita, SiTwitter } from 'react-icons/si';
+
+import styles from './styles.module.scss';
 
 const Profile = () => {
   return (

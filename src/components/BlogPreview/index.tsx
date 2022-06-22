@@ -1,13 +1,13 @@
-import type { ArticleType } from '../../types/types';
-import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
-import { giveAttributeToBody } from '../../utils/giveAttributeToBody';
+import type { ArticleType } from '@/types/types';
+import { getCreatesAtDate } from '@/utils/getCreatedAtDate';
+import { giveAttributeToBody } from '@/utils/giveAttributeToBody';
 import { useContext } from 'react';
-import { articlesContext } from '../../pages/_app';
+import { articlesContext } from '@/pages/_app';
 
-import RecentBlogs from '../RecentBlogs';
-import Profile from '../Profile';
-import Categories from '../Categories';
-import SearchBar from '../SearchBar';
+import RecentBlogs from '@/components/RecentBlogs';
+import Profile from '@/components/Profile';
+import Categories from '@/components/Categories';
+import SearchBar from '@/components/SearchBar';
 
 import styles from './styles.module.scss';
 

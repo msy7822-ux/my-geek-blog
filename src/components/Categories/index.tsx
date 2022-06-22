@@ -1,8 +1,8 @@
-import { categories } from '../../constants/categories';
-import Category from '../Category';
-import styles from './styles.module.scss';
-
 import { BiCategory } from 'react-icons/bi';
+import { categories } from '@/constants/categories';
+import Category from '@/components/Category';
+
+import styles from './styles.module.scss';
 
 const Categories = () => {
   return (

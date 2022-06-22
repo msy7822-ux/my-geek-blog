@@ -1,8 +1,8 @@
-import SearchBar from '../SearchBar';
-import Categories from '../Categories';
-import RecentBlogs from '../RecentBlogs';
+import SearchBar from '@/components/SearchBar';
+import Categories from '@/components/Categories';
+import RecentBlogs from '@/components/RecentBlogs';
 
-import type { ArticlesType } from '../../types/types';
+import type { ArticlesType } from '@/types/types';
 
 import styles from './styles.module.scss';
 

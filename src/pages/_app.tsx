@@ -1,8 +1,8 @@
-import '../styles/globals.scss';
+import 'styles/globals.scss';
 import type { AppProps } from 'next/app';
 
-import { microcmsClient } from '../libs/microCMS';
-import type { ArticlesType } from '../types/types';
+import { microcmsClient } from 'libs/microCMS';
+import type { ArticlesType } from 'types/types';
 import { useState, createContext } from 'react';
 type InitialPropsType = {
   initialProps: {

@@ -1,7 +1,6 @@
-import { ArticlesType } from '../../types/types';
 import { RiArticleFill } from 'react-icons/ri';
-
-import Category from '../Category';
+import { ArticlesType } from '@/types/types';
+import Category from '@/components/Category';
 
 import styles from './styles.module.scss';
 

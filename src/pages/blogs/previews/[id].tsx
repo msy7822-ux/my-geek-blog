@@ -1,11 +1,12 @@
-import { microcmsClient } from '../../../libs/microCMS';
-import type { ArticleType } from '../../../types/types';
-import Container from '../../../components/Container';
-import BlogPreview from '../../../components/BlogPreview';
 import type { NextPage, GetServerSideProps } from 'next';
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/night-owl.css';
+
+import { microcmsClient } from 'libs/microCMS';
+import type { ArticleType } from 'types/types';
+import Container from 'components/Container';
+import BlogPreview from 'components/BlogPreview';
 
 // NOTE: webpackとかmiddlewareとかのTypeError default is not function とかはcacheディレクトリ消すといいかも
 

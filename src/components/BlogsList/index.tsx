@@ -1,6 +1,7 @@
-import type { ArticleType } from '../../types/types';
+import type { ArticleType } from '@/types/types';
+import BlogItem from '@/components/BlogItem/index';
+
 import styles from './styles.module.scss';
-import BlogItem from '../BlogItem/index';
 
 const BlogsList = ({ articles }: { articles: ArticleType[] }) => {
   return (

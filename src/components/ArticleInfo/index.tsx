@@ -1,7 +1,8 @@
-import Category from '../Category';
-import { getCreatesAtDate } from '../../utils/getCreatedAtDate';
+import Category from '@/components/Category';
+import { getCreatesAtDate } from '@/utils/getCreatedAtDate';
+import { ArticleType } from '@/types/types';
+
 import styles from './styles.module.scss';
-import { ArticleType } from '../../types/types';
 
 const ArticleInfo = ({ article }: { article: ArticleType }) => {
   return (

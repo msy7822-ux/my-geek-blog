@@ -1,8 +1,8 @@
-import { ArticleType } from '../../types/types';
-import styles from './styles.module.scss';
+import type { ArticleType } from '@/types/types';
+import ArticleInfo from '@/components/ArticleInfo';
+import BlogThumbnail from '@/components/BlogThumbnail';
 
-import ArticleInfo from '../ArticleInfo';
-import BlogThumbnail from '../BlogThumbnail';
+import styles from './styles.module.scss';
 
 const BlogItem = ({ article }: { article: ArticleType }) => {
   const thumbnail = article.thumbnail ? article.thumbnail.url : undefined;
