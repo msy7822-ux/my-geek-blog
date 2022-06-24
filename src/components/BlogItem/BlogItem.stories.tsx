@@ -1,23 +1,22 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ArticleInfo from '.';
+import BlogItem from '.';
 
 export default {
-  title: 'Example/ArticleInfo',
-  component: ArticleInfo,
+  title: 'Example/BlogItem',
+  component: BlogItem,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof ArticleInfo>;
+} as ComponentMeta<typeof BlogItem>;
 
-const Template: ComponentStory<typeof ArticleInfo> = (args) => (
-  <ArticleInfo {...args} />
+const Template: ComponentStory<typeof BlogItem> = (args) => (
+  <BlogItem {...args} />
 );
-
-export const Article = Template.bind({});
-Article.args = {
+export const Item = Template.bind({});
+Item.args = {
   article: {
     id: 'test id',
     createdAt: '1999/11/08',
