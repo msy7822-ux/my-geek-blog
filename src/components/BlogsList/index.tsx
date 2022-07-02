@@ -8,9 +8,9 @@ const BlogsList = ({ articles }: { articles: ArticleType[] }) => {
     <div className={styles.articlesListContainer}>
       {articles?.map((article, key) => {
         return (
-          <li className={styles.blogsList} key={key}>
+          <span className={styles.blogsList} key={key}>
             <BlogItem article={article} />
-          </li>
+          </span>
         );
       })}
     </div>

@@ -15,10 +15,10 @@ const RecentBlogs = ({ articles }: { articles: ArticlesType }) => {
       </div>
       {articles?.contents?.map((article, i) => {
         // 記事数が多くなってきたら、下記の条件を復元する
-        // if (i >= 5) return;
+        if (i >= 3) return;
 
         return (
-          <li key={i}>
+          <div key={i} className={styles.articleContainer}>
             <a
               className={styles.recentArticle}
               href={`/blogs/previews/${article?.id}`}
@@ -40,7 +40,7 @@ const RecentBlogs = ({ articles }: { articles: ArticlesType }) => {
                 );
               })}
             </div>
-          </li>
+          </div>
         );
       })}
     </>

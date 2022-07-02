@@ -1,13 +1,13 @@
+import { useContext } from 'react';
+import parse from 'html-react-parser';
+
 import type { ArticleType } from '@/types/types';
 import { getCreatesAtDate } from '@/utils/getCreatedAtDate';
-import { giveAttributeToBody } from '@/utils/giveAttributeToBody';
-import { useContext } from 'react';
+import { convertHtmlTagToDiv } from '@/utils/convertHtmlTagToDiv';
 import { articlesContext } from '@/pages/_app';
 
-import RecentBlogs from '@/components/RecentBlogs';
 import Profile from '@/components/Profile';
-import Categories from '@/components/Categories';
-import SearchBar from '@/components/SearchBar';
+import Sidebar from '@/components/Sidebar';
 
 import styles from './styles.module.scss';
 
@@ -43,24 +43,13 @@ const BlogPreview = ({
             );
           })}
         </div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: giveAttributeToBody(highlightHtml),
-          }}
-          className={styles.body}
-        />
+        <div className={styles.articleBodyContainer}>
+          {parse(convertHtmlTagToDiv(highlightHtml))}
+        </div>
       </div>
       <div className={styles.sidebar}>
         <Profile />
-        <aside>
-          <nav>
-            <ul className={styles.sidebarList}>
-              <SearchBar />
-              <Categories />
-              <RecentBlogs articles={articles} />
-            </ul>
-          </nav>
-        </aside>
+        <Sidebar articles={articles} />
       </div>
     </div>
   );

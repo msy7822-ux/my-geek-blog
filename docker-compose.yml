@@ -14,21 +14,17 @@ services:
     volumes:
       - ./src:/opt/app
       - ./src/node_modules:/opt/app/node_modules
-    environment:
-      - NODE_ENV=development
     ports:
       - "3000:3000"
       # - "6006:6006"
     command: sh -c "yarn dev"
 
-  storybook:
-    container_name: storybook
-    build:
-      context: .
-      dockerfile: ./docker/storybook/Dockerfile
-    tty: true
-    environment:
-      - NODE_ENV=development
-    ports:
-      - "6006:6006"
-    command: sh -c "yarn storybook"
+  # storybook:
+  #   container_name: storybook
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/storybook/Dockerfile
+  #   tty: true
+  #   ports:
+  #     - "6006:6006"
+  #   command: sh -c "yarn storybook"

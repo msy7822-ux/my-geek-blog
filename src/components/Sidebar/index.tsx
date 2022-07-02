@@ -10,11 +10,11 @@ const Sidebar = ({ articles }: { articles: ArticlesType }) => {
   return (
     <aside className={styles.sidebar}>
       <nav>
-        <ul className={styles.sidebarList}>
+        <div className={styles.sidebarList}>
           <SearchBar />
           <Categories />
           <RecentBlogs articles={articles} />
-        </ul>
+        </div>
       </nav>
     </aside>
   );

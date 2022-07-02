@@ -1,6 +1,7 @@
 import { BiCategory } from 'react-icons/bi';
 import { categories } from '@/constants/categories';
 import Category from '@/components/Category';
+import Link from 'next/link';
 
 import styles from './styles.module.scss';
 
@@ -11,13 +12,17 @@ const Categories = () => {
         <div className={styles.icon}>
           <BiCategory />
         </div>
-        <p>全てのカテゴリー</p>
+        <p>タグで絞り込む</p>
       </div>
       <br />
       {categories.map((category, i) => {
         return (
           <span key={i}>
-            <Category category={category} />
+            <Link href={`/blogs/search?tag=${category}`}>
+              <a>
+                <Category category={category} />
+              </a>
+            </Link>
           </span>
         );
       })}
