@@ -7,6 +7,8 @@ import { convertStringToHtml } from '@/utils/covertStirngToHtml';
 import Container from '@/components/Container';
 import BlogDetail from '@/components/BlogDetail';
 
+import 'highlight.js/styles/atom-one-dark.css';
+
 const BlogPage: NextPage<{ article: ArticleType; highlightHtml: string }> = ({
   article,
   highlightHtml,
