@@ -1,0 +1,85 @@
+@import '../../styles/common.scss';
+
+.profileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  .profileImage {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    margin-right: 30px;
+    border: 0.5px solid $gray;
+  }
+
+  .introductionContainer {
+    padding: 50px;
+    border: 0.5px solid $weak_gray;
+    border-radius: 10px;
+
+    .icons {
+      text-align: center;
+      margin-top: 50px;
+      .icon {
+        margin-right: 15px;
+        font-size: 20px;
+        opacity: 0.8;
+
+        &:hover {
+          color: $weak_gray;
+        }
+      }
+    }
+
+    .introductionTitle {
+      font-family: 'M PLUS Rounded 1c';
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .introductionUnderBar {
+      color: $weak_gray;
+      width: 50%;
+      margin-bottom: 50px;
+    }
+
+    .introductionLinks {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+
+      & > *:not(:last-child) {
+        margin-right: 40px;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------------
+
+.circleStyle {
+  $circleSize: 120px;
+
+  width: $circleSize;
+  height: $circleSize;
+  line-height: $circleSize;
+  border-radius: 50%;
+  border: 1px solid $weak_gray;
+  text-align: center;
+  color: $white;
+  font-size: 14px;
+  background: $main_purple;
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:hover {
+    background: $white;
+    border: 1px solid $weak_gray;
+    opacity: 0.6;
+    color: $black;
+  }
+}

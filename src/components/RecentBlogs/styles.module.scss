@@ -1,0 +1,57 @@
+@import '../../styles/common.scss';
+
+.titleText {
+  font-weight: bold;
+  color: $weak_purple;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  padding-right: 10px;
+  padding-left: 5px;
+  border-bottom: 2px solid $weak_purple;
+
+  .icon {
+    margin-right: 5px;
+    color: $weak_purple;
+  }
+}
+
+.articleContainer {
+  margin-bottom: 25px;
+  .recentArticle {
+    display: flex;
+
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      border-radius: 3px;
+    }
+
+    .articleTitle {
+      margin-left: 10px;
+      font-size: 14px;
+      color: $main_purple;
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    // thumbnailのwidth分（80px）+ articleTitleのmargin-left（10px）=> 90px
+    margin-left: 90px;
+
+    .tag {
+      font-size: 12px;
+      white-space: nowrap;
+      margin-right: 5px;
+      background: $tag;
+      color: $main_purple;
+      padding: 4px 6px;
+      border-radius: 10px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../styles/common.scss';
+
+.category {
+  color: $main_purple;
+  background: $tag;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  white-space: nowrap;
+  transition: all 0.5s;
+
+  &:hover {
+    background: $main_purple;
+    color: $white;
+    transition: all 0.5s;
+  }
+}

@@ -1,0 +1,67 @@
+@import '../../styles/common.scss';
+
+.profileBackgroundContainer {
+  .profileBackgroundTitle {
+    font-size: 30px;
+  }
+
+  .profileBackgroundTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .careerBackgrounds {
+    & > .container:not(:first-child) {
+      margin-top: 40px;
+    }
+
+    & > .container:nth-child(2n) {
+      background: $weak_gray;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Sawarabi Mincho';
+      padding: 20px;
+
+      .tableHeadDate {
+        display: inline-flex;
+        align-items: center;
+        color: $main_purple;
+
+        & > .backgroundIcon {
+          margin-left: 5px;
+        }
+      }
+
+      .tableHeadCompany {
+        @extend .tableHeadDate;
+        width: 150px;
+      }
+
+      .tableHeadDetail {
+        @extend .tableHeadDate;
+        width: 350px;
+      }
+
+      .details {
+        display: flex;
+        width: 500px;
+
+        .companyName {
+          width: 150px;
+        }
+
+        .backgroundDetail {
+          width: 350px;
+        }
+
+        & > *:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

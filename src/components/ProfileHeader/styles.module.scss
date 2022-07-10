@@ -1,0 +1,56 @@
+@import '../../styles/common.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .headerProfile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      color: $weak_gray;
+    }
+
+    .colorCircle {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: $weak_purple;
+      margin-right: 5px;
+    }
+
+    .name {
+      margin-right: 10px;
+      font-family: 'Sawarabi Mincho';
+    }
+
+    .roman {
+      font-family: 'Caveat', cursive;
+    }
+  }
+
+  .headerNav {
+    display: flex;
+    justify-content: flex-start;
+
+    li:not(:last-child) {
+      margin-right: 5px;
+
+      &:after {
+        content: ' ｜ ';
+        color: $black;
+      }
+    }
+
+    & > * {
+      cursor: pointer;
+
+      &:hover {
+        color: $weak_gray;
+      }
+    }
+  }
+}

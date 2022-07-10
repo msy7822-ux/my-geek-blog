@@ -1,0 +1,23 @@
+@import '../../styles/common.scss';
+
+.paginationContainer {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  .paginationItem {
+    margin-right: 5px;
+    padding: 8px 16px;
+    border-radius: 3px;
+    color: $white;
+    background: $weak_purple;
+  }
+
+  #disabled {
+    @extend .paginationItem;
+
+    background: $gray;
+    pointer-events: none;
+  }
+}
