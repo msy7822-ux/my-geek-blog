@@ -41,7 +41,7 @@ const Search: NextPage<{ result: ArticlesType }> = ({
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const pathString = context.req.url;
-  const urlString = `http://localhost:3000${pathString}`;
+  const urlString = `${process.env.NEXT_PUBLIC_BASE_URL}${pathString}`;
   const keyword = new URL(urlString).searchParams.get('keyword');
   const tag = new URL(urlString).searchParams.get('tag');
 
