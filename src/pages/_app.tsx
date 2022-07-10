@@ -40,7 +40,10 @@ function MyApp({
 
 MyApp.getInitialProps = async () => {
   const articles = await microcmsClient
-    .get({ endpoint: 'blog', queries: { limit: 20, offset: 0 } })
+    .get({
+      endpoint: 'blog',
+      queries: { limit: 20, offset: 0, filters: 'isPublished[equals]true' },
+    })
     .then((res) => {
       return res;
     })

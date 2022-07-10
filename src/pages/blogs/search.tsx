@@ -5,7 +5,7 @@ import { articlesContext } from '@/pages/_app';
 import BlogsList from '@/components/BlogsList';
 import Container from '@/components/Container';
 import Sidebar from '@/components/Sidebar';
-import Profile from '@/components/Profile';
+import SidebarProfile from '@/components/SidebarProfile';
 import { microcmsClient } from '@/libs/microCMS';
 import type { ArticlesType } from '@/types/types';
 
@@ -31,7 +31,7 @@ const Search: NextPage<{ result: ArticlesType }> = ({
         </div>
 
         <div className={styles.sidebar}>
-          <Profile />
+          <SidebarProfile />
           <Sidebar articles={fetchedArticles} />
         </div>
       </div>

@@ -17,7 +17,11 @@ const Header = () => {
           </a>
         </Link>
         <p className={styles.headerItem}>このブログについて</p>
-        <p className={styles.headerItem}>プロフィール</p>
+        <Link href="/profiles">
+          <a>
+            <p className={styles.headerItem}>プロフィール</p>
+          </a>
+        </Link>
       </div>
     </div>
   );

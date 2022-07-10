@@ -1,0 +1,24 @@
+@import '../../styles/common.scss';
+
+.circleStyle {
+  $circleSize: 120px;
+
+  width: $circleSize;
+  height: $circleSize;
+  line-height: $circleSize;
+  border-radius: 50%;
+  border: 1px solid $weak_gray;
+  text-align: center;
+  color: $white;
+  font-size: 14px;
+  background: $main_purple;
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:hover {
+    background: $white;
+    border: 1px solid $weak_gray;
+    opacity: 0.6;
+    color: $black;
+  }
+}

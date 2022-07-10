@@ -1,17 +1,21 @@
 import type { NextPage } from 'next';
 import React, { useContext } from 'react';
+// import { useMediaQuery } from 'react-response';
 
 import { articlesContext } from '@/pages/_app';
-import Container from 'components/Container';
-import BlogsList from 'components/BlogsList';
-import Profile from 'components/Profile';
-import Sidebar from 'components/Sidebar';
+import Container from '@/components/Container';
+import BlogsList from '@/components/BlogsList';
+import SidebarProfile from '@/components/SidebarProfile';
+import Sidebar from '@/components/Sidebar';
 import Pagination from '@/components/Pagination';
 
 import styles from 'styles/pages/TopPage/styles.module.scss';
 
 const TopPage: NextPage = () => {
   const { articles } = useContext(articlesContext);
+  // const isMobileScreen: boolean = useMediaQuery({
+  //   query: '(max-width: 1124px)',
+  // });
 
   return (
     <Container>
@@ -26,10 +30,12 @@ const TopPage: NextPage = () => {
           <BlogsList articles={articles?.contents?.slice(0, 5)} />
         </div>
 
-        <div className={styles.sidebar}>
-          <Profile />
-          <Sidebar articles={articles} />
-        </div>
+        {true && (
+          <div className={styles.sidebar}>
+            <SidebarProfile />
+            <Sidebar articles={articles} />
+          </div>
+        )}
       </div>
 
       <div className={styles.pagination}>

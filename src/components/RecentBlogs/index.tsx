@@ -14,15 +14,11 @@ const RecentBlogs = ({ articles }: { articles: ArticlesType }) => {
         <p className={styles.titleText}>最近の記事</p>
       </div>
       {articles?.contents?.map((article, i) => {
-        // 記事数が多くなってきたら、下記の条件を復元する
         if (i >= 3) return;
 
         return (
           <div key={i} className={styles.articleContainer}>
-            <a
-              className={styles.recentArticle}
-              href={`/blogs/previews/${article?.id}`}
-            >
+            <a className={styles.recentArticle} href={`/blogs/${article?.id}`}>
               <img
                 src={article?.thumbnail?.url || '/images/prog_img.jpg'}
                 alt=""

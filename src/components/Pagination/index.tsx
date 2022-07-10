@@ -9,8 +9,9 @@ const Pagination = ({ totalCount }: { totalCount: number }) => {
   const router = useRouter();
 
   // end = 5 start = 2の場合、 [...Array(end - start + 1)] => [undefined, undefined]になる
-  const range = (start: number, end: number) =>
-    [...Array(end - start + 1)].map((_, i) => start + i);
+  const range = (start: number, end: number) => {
+    return [...Array(end - start + 1)].map((_, i) => start + i);
+  };
 
   // 1ページの最後のインデックス
   const end = Math.ceil(totalCount / PER_PAGE);

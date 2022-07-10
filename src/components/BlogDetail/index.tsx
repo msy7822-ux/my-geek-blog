@@ -1,25 +1,23 @@
-import { useContext } from 'react';
 import parse from 'html-react-parser';
+import { useContext } from 'react';
+import { articlesContext } from '@/pages/_app';
 
 import type { ArticleType } from '@/types/types';
 import { getCreatesAtDate } from '@/utils/getCreatedAtDate';
 import { convertHtmlTagToDiv } from '@/utils/convertHtmlTagToDiv';
-import { articlesContext } from '@/pages/_app';
 
 import SidebarProfile from '@/components/SidebarProfile';
 import Sidebar from '@/components/Sidebar';
-
 import styles from './styles.module.scss';
 
-const BlogPreview = ({
+const BlogDetail = ({
   article,
   highlightHtml,
 }: {
   article: ArticleType;
   highlightHtml: string;
 }) => {
-  const { articles } = useContext(articlesContext);
-
+  const { articles: allArticles } = useContext(articlesContext);
   return (
     <div className={styles.container}>
       <div className={styles.contentBody}>
@@ -49,10 +47,10 @@ const BlogPreview = ({
       </div>
       <div className={styles.sidebar}>
         <SidebarProfile />
-        <Sidebar articles={articles} />
+        <Sidebar articles={allArticles} />
       </div>
     </div>
   );
 };
 
-export default BlogPreview;
+export default BlogDetail;

@@ -5,7 +5,7 @@ import { microcmsClient } from '@/libs/microCMS';
 import { articlesContext } from '@/pages/_app';
 import Container from 'components/Container';
 import BlogsList from 'components/BlogsList';
-import Profile from 'components/Profile';
+import SidebarProfile from '@/components/SidebarProfile';
 import Sidebar from 'components/Sidebar';
 import Pagination from '@/components/Pagination';
 import type { ArticlesType } from '@/types/types';
@@ -35,7 +35,7 @@ const PaginatedArticles: NextPage<{ articles: ArticlesType }> = ({
         </div>
 
         <div className={styles.sidebar}>
-          <Profile />
+          <SidebarProfile />
           <Sidebar articles={allArticles} />
         </div>
       </div>
@@ -51,8 +51,9 @@ const PaginatedArticles: NextPage<{ articles: ArticlesType }> = ({
 export const getStaticPaths: GetStaticPaths = async () => {
   const fetchedArticles = await microcmsClient.get({ endpoint: 'blog' });
 
-  const range = (start: number, end: number) =>
-    [...Array(end - start + 1)].map((_, i) => start + i);
+  const range = (start: number, end: number) => {
+    return [...Array(end - start + 1)].map((_, i) => start + i);
+  };
 
   const paths = range(1, Math.ceil(fetchedArticles.totalCount / PER_PAGE)).map(
     (article) => `/blogs/page/${article}`,
